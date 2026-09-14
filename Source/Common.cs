@@ -5,6 +5,31 @@ namespace MoreBlockDamageOptions;
 
 public static class Common
 {
+    public static IGlobalModSettingsCategory GetCategory(this IModGlobalSettings modSetting, string name) =>
+        modSetting.GetTab(name).GetCategory(name);
+
+    public static void Gears_ReadGlobalEnum<TEnum>(
+        IGlobalModSettingsCategory category,
+        string name,
+        ref TEnum value,
+        Action<TEnum> onValueChanged
+    )
+        where TEnum : struct, Enum
+    {
+        if (category.GetSetting(name) is not IGlobalValueSetting globalValueSetting)
+            return;
+
+        if (Enum.TryParse<TEnum>(globalValueSetting.CurrentValue, true, out var result))
+            value = result;
+
+        globalValueSetting.OnSettingChanged += (_, newValue) =>
+        {
+            VerboseLogging_TryParse(globalValueSetting.CurrentValue, newValue, name);
+            if (Enum.TryParse<TEnum>(newValue, true, out var parsed))
+                onValueChanged(parsed);
+        };
+    }
+
     public static void Gears_ReadGlobalInt(
         IGlobalModSettingsCategory category,
         string name,

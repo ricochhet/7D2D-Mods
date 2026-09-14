@@ -15,7 +15,7 @@ public static class EAIBreakBlock_CanExecute
         if (entityAlive == null || entityAlive.world == null || entityAlive.moveHelper == null)
             return;
 
-        if (ModSettings.AlwaysAllowDoorBreaking)
+        if (ModSettings.AlwaysAllowDoorDamage)
         {
             Vector3i blockPos = entityAlive.moveHelper.HitInfo.hit.blockPos;
             BlockValue blockValue = entityAlive.world.GetBlock(blockPos);
@@ -27,15 +27,20 @@ public static class EAIBreakBlock_CanExecute
             }
         }
 
-        bool flag = false;
-        Vector3i entityPosition = new(entityAlive.position);
-        int zombieBlockBreakDistance = ModSettings.ZombieBlockBreakDistance;
-        if (zombieBlockBreakDistance <= 0)
+        if (ModSettings.ZombieBlockDamageMode == ZombieBlockDamageMode.Vanilla)
+            return;
+
+        if (
+            ModSettings.ZombieBlockDamageDistance <= 0
+            || ModSettings.ZombieBlockDamageMode == ZombieBlockDamageMode.None
+        )
         {
             __result = false;
             return;
         }
 
+        bool flag = false;
+        Vector3i entityPosition = new(entityAlive.position);
         for (int i = 0; i < entityAlive.world.Players.list.Count; i++)
         {
             EntityPlayer entityPlayer = entityAlive.world.Players.list[i];
@@ -45,7 +50,11 @@ public static class EAIBreakBlock_CanExecute
                 int x = Math.Abs(entityPosition.x - playerPosition.x);
                 int y = Math.Abs(entityPosition.y - playerPosition.y);
                 int z = Math.Abs(entityPosition.z - playerPosition.z);
-                if (x <= zombieBlockBreakDistance && y <= zombieBlockBreakDistance && z <= zombieBlockBreakDistance)
+                if (
+                    x <= ModSettings.ZombieBlockDamageDistance
+                    && y <= ModSettings.ZombieBlockDamageDistance
+                    && z <= ModSettings.ZombieBlockDamageDistance
+                )
                 {
                     flag = true;
                     break;

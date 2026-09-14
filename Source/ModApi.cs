@@ -32,30 +32,39 @@ public class ModApi : IModApi, IGearsModApi
         if (modSettings == null)
             return;
 
-        IGlobalModSettingsCategory main = modSettings.GetTab("MoreBlockDamageOptions").GetCategory("Main");
+        IGlobalModSettingsCategory zombies = modSettings.GetCategory("Zombies");
+        Common.Gears_ReadGlobalEnum(
+            zombies,
+            "ZombieBlockDamageMode",
+            ref ModSettings.ZombieBlockDamageMode,
+            value => ModSettings.ZombieBlockDamageMode = value
+        );
+
         Common.Gears_ReadGlobalInt(
-            main,
-            "ZombieBlockBreakDistance",
-            ref ModSettings.ZombieBlockBreakDistance,
-            value => ModSettings.ZombieBlockBreakDistance = value
+            zombies,
+            "ZombieBlockDamageDistance",
+            ref ModSettings.ZombieBlockDamageDistance,
+            value => ModSettings.ZombieBlockDamageDistance = value
         );
 
         Common.Gears_ReadGlobalBool(
-            main,
-            "AlwaysAllowDoorBreaking",
-            ref ModSettings.AlwaysAllowDoorBreaking,
-            value => ModSettings.AlwaysAllowDoorBreaking = value
+            zombies,
+            "AlwaysAllowDoorDamage",
+            ref ModSettings.AlwaysAllowDoorDamage,
+            value => ModSettings.AlwaysAllowDoorDamage = value
         );
 
+        IGlobalModSettingsCategory explosions = modSettings.GetCategory("Explosions");
         Common.Gears_ReadGlobalFloat(
-            main,
+            explosions,
             "ExplosionBlockDamagePercentage",
             ref ModSettings.ExplosionBlockDamagePercentage,
             value => ModSettings.ExplosionBlockDamagePercentage = value
         );
 
+        IGlobalModSettingsCategory misc = modSettings.GetCategory("Misc");
         Common.Gears_ReadGlobalBool(
-            main,
+            misc,
             "VerboseLogging",
             ref ModSettings.VerboseLogging,
             value => ModSettings.VerboseLogging = value

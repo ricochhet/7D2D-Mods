@@ -1,28 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModSettings>
   <Global>
-    <Tab
-      name="MoreBlockDamageOptions"
-      displayKey="More Block Damage Options"
-      tooltipKey="[DECEA3]More options for block damage[-]"
-    >
-      <Category name="Main" displayKey="[00b6ff]Main[-]" tooltipKey="[DECEA3]More options for block damage[-]">
+    <Tab name="Zombies" displayKey="Zombies" tooltipKey="[DECEA3]Zombie related block damage options[-]">
+      <Category
+        name="Zombies"
+        displayKey="[00b6ff]Zombies[-]"
+        tooltipKey="[DECEA3]Zombie related block damage options[-]"
+      >
+        <Selector
+          name="ZombieBlockDamageMode"
+          displayKey="Zombie Block Damage Mode"
+          tooltipKey="[DECEA3]Mode to use for zombie block damage[-]"
+          value="Distance"
+          defaultValue="Distance"
+        >
+          <Property type="arrayValues" allowedValues="None,Distance,Vanilla" />
+        </Selector>
         <Slider
-          name="ZombieBlockBreakDistance"
-          displayKey="Zombie Block Break Distance"
-          tooltipKey="[DECEA3]How close zombies need to be from player to break blocks[-]"
+          name="ZombieBlockDamageDistance"
+          displayKey="Zombie Block Damage Distance"
+          tooltipKey="[DECEA3]How close zombies need to be from player to damage blocks[-]"
           defaultValue="5"
         >
           <Property increment="1" minValue="0" maxValue="100" type="incrementalValuesInt" />
         </Slider>
         <Switch
-          name="AlwaysAllowDoorBreaking"
-          displayKey="Always Allow Door Breaking"
-          tooltipKey="[DECEA3]Allow door breaking regardless of distance[-]"
+          name="AlwaysAllowDoorDamage"
+          displayKey="Always Allow Door Damgae"
+          tooltipKey="[DECEA3]Allow door damage regardless of distance[-]"
           defaultValue="No"
           leftValue="No"
           rightValue="Yes"
         />
+        <Switch
+          name="VerboseLogging"
+          displayKey="Verbose Logging"
+          tooltipKey="[DECEA3]Enable verbose logging[-]"
+          defaultValue="No"
+          leftValue="No"
+          rightValue="Yes"
+        />
+      </Category>
+    </Tab>
+    <Tab name="Explosions" displayKey="Explosions" tooltipKey="[DECEA3]Explosion related block damage options[-]">
+      <Category
+        name="Explosions"
+        displayKey="[00b6ff]Explosions[-]"
+        tooltipKey="[DECEA3]Explosion related block damage options[-]"
+      >
         <Slider
           name="ExplosionBlockDamagePercentage"
           displayKey="Explosion Block Damage %"
@@ -31,11 +56,15 @@
         >
           <Property increment="1" minValue="0" maxValue="100" type="incrementalValuesInt" />
         </Slider>
+      </Category>
+    </Tab>
+    <Tab name="Misc" displayKey="Misc" tooltipKey="[DECEA3]Misc options[-]">
+      <Category name="Misc" displayKey="[00b6ff]Misc[-]" tooltipKey="[DECEA3]Misc options[-]">
         <Switch
           name="VerboseLogging"
           displayKey="Verbose Logging"
           tooltipKey="[DECEA3]Enable verbose logging[-]"
-          defaultValue="No"
+          defaultValue="Yes"
           leftValue="No"
           rightValue="Yes"
         />
