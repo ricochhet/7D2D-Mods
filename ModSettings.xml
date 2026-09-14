@@ -48,6 +48,14 @@
         displayKey="[00b6ff]Explosions[-]"
         tooltipKey="[DECEA3]Explosion related block damage options[-]"
       >
+        <Switch
+          name="EnableExplosionBlockDamage"
+          displayKey="Enable Explosion Block Damage"
+          tooltipKey="[DECEA3]Enable or disable explosion block damage[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
         <Slider
           name="ExplosionBlockDamagePercentage"
           displayKey="Explosion Block Damage %"

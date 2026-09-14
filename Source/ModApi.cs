@@ -62,7 +62,14 @@ public class ModApi : IModApi, IGearsModApi
         );
 
         IGlobalModSettingsCategory explosions = modSettings.GetCategory("Explosions");
-        Common.Gears_ReadGlobalFloat(
+        Common.Gears_ReadGlobalBool(
+            explosions,
+            "EnableExplosionBlockDamage",
+            ref ModSettings.EnableExplosionBlockDamage,
+            value => ModSettings.EnableExplosionBlockDamage = value
+        );
+
+        Common.Gears_ReadGlobalInt(
             explosions,
             "ExplosionBlockDamagePercentage",
             ref ModSettings.ExplosionBlockDamagePercentage,
