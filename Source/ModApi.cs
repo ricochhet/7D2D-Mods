@@ -29,63 +29,34 @@ public class ModApi : IModApi, IGearsModApi
 
     public void OnGlobalSettingsLoaded(IModGlobalSettings modSettings)
     {
-        ISliderGlobalSetting zombieBlockBreakDistance =
-            modSettings.GetTab("MoreBlockDamageOptions").GetCategory("Main").GetSetting("ZombieBlockBreakDistance")
-            as ISliderGlobalSetting;
-        Common.TryParseInt(
-            zombieBlockBreakDistance.CurrentValue,
+        IGlobalModSettingsCategory main = modSettings.GetTab("MoreBlockDamageOptions").GetCategory("Main");
+        Common.Gears_ReadGlobalInt(
+            main,
+            "ZombieBlockBreakDistance",
             ref ModSettings.ZombieBlockBreakDistance,
-            nameof(ModSettings.ZombieBlockBreakDistance)
+            value => ModSettings.ZombieBlockBreakDistance = value
         );
-        zombieBlockBreakDistance.OnSettingChanged += static (_, value) =>
-            Common.TryParseInt(
-                value,
-                ref ModSettings.ZombieBlockBreakDistance,
-                nameof(ModSettings.ZombieBlockBreakDistance)
-            );
 
-        ISwitchGlobalSetting alwaysAllowDoorBreaking =
-            modSettings.GetTab("MoreBlockDamageOptions").GetCategory("Main").GetSetting("AlwaysAllowDoorBreaking")
-            as ISwitchGlobalSetting;
-        Common.TryParseBool(
-            alwaysAllowDoorBreaking.CurrentValue,
+        Common.Gears_ReadGlobalBool(
+            main,
+            "AlwaysAllowDoorBreaking",
             ref ModSettings.AlwaysAllowDoorBreaking,
-            nameof(ModSettings.AlwaysAllowDoorBreaking)
+            value => ModSettings.AlwaysAllowDoorBreaking = value
         );
-        alwaysAllowDoorBreaking.OnSettingChanged += static (_, value) =>
-            Common.TryParseBool(
-                value,
-                ref ModSettings.AlwaysAllowDoorBreaking,
-                nameof(ModSettings.AlwaysAllowDoorBreaking)
-            );
 
-        ISliderGlobalSetting explosionBlockDamagePercentage =
-            modSettings
-                .GetTab("MoreBlockDamageOptions")
-                .GetCategory("Main")
-                .GetSetting("ExplosionBlockDamagePercentage") as ISliderGlobalSetting;
-        Common.TryParseFloat(
-            explosionBlockDamagePercentage.CurrentValue,
+        Common.Gears_ReadGlobalFloat(
+            main,
+            "ExplosionBlockDamagePercentage",
             ref ModSettings.ExplosionBlockDamagePercentage,
-            nameof(ModSettings.ExplosionBlockDamagePercentage)
+            value => ModSettings.ExplosionBlockDamagePercentage = value
         );
-        explosionBlockDamagePercentage.OnSettingChanged += static (_, value) =>
-            Common.TryParseFloat(
-                value,
-                ref ModSettings.ExplosionBlockDamagePercentage,
-                nameof(ModSettings.ExplosionBlockDamagePercentage)
-            );
 
-        ISwitchGlobalSetting verboseLogging =
-            modSettings.GetTab("MoreBlockDamageOptions").GetCategory("Main").GetSetting("VerboseLogging")
-            as ISwitchGlobalSetting;
-        Common.TryParseBool(
-            verboseLogging.CurrentValue,
+        Common.Gears_ReadGlobalBool(
+            main,
+            "VerboseLogging",
             ref ModSettings.VerboseLogging,
-            nameof(ModSettings.VerboseLogging)
+            value => ModSettings.VerboseLogging = value
         );
-        verboseLogging.OnSettingChanged += static (_, value) =>
-            Common.TryParseBool(value, ref ModSettings.VerboseLogging, nameof(ModSettings.VerboseLogging));
     }
 
     public void OnWorldSettingsLoaded(IModWorldSettings worldSettings) { }

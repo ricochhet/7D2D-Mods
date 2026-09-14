@@ -9,15 +9,11 @@ public static class EAIBreakBlock_CanExecute
     public static void Postfix(EAIBreakBlock __instance, ref bool __result)
     {
         if (!__result)
-        {
             return;
-        }
 
         EntityAlive entityAlive = __instance.theEntity;
         if (entityAlive == null || entityAlive.world == null || entityAlive.moveHelper == null)
-        {
             return;
-        }
 
         if (ModSettings.AlwaysAllowDoorBreaking)
         {
@@ -27,9 +23,7 @@ public static class EAIBreakBlock_CanExecute
             {
                 Block block = blockValue.Block;
                 if (block.HasTag(BlockTags.Door) || block.HasTag(BlockTags.ClosetDoor))
-                {
                     return;
-                }
             }
         }
 
@@ -60,8 +54,6 @@ public static class EAIBreakBlock_CanExecute
         }
 
         if (!flag)
-        {
             __result = false;
-        }
     }
 }
