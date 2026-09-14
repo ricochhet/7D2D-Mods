@@ -3,7 +3,7 @@ using HarmonyLib;
 
 namespace MoreBlockDamageOptions.Patches;
 
-[HarmonyPatch(typeof(EAIBreakBlock), "CanExecute")]
+[HarmonyPatch(typeof(EAIBreakBlock), nameof(EAIBreakBlock.CanExecute))]
 public static class EAIBreakBlock_CanExecute
 {
     public static void Postfix(EAIBreakBlock __instance, ref bool __result)

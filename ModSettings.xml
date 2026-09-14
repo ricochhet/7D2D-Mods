@@ -26,17 +26,17 @@
         </Slider>
         <Switch
           name="AlwaysAllowDoorDamage"
-          displayKey="Always Allow Door Damgae"
+          displayKey="Always Allow Door Damage"
           tooltipKey="[DECEA3]Allow door damage regardless of distance[-]"
           defaultValue="No"
           leftValue="No"
           rightValue="Yes"
         />
         <Switch
-          name="VerboseLogging"
-          displayKey="Verbose Logging"
-          tooltipKey="[DECEA3]Enable verbose logging[-]"
-          defaultValue="No"
+          name="EnableDestroyAreaMode"
+          displayKey="Enable Destroy Area Mode"
+          tooltipKey="[DECEA3]Enable or disable destroy area mode for zombies[-]"
+          defaultValue="Yes"
           leftValue="No"
           rightValue="Yes"
         />

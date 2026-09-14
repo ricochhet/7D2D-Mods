@@ -54,6 +54,13 @@ public class ModApi : IModApi, IGearsModApi
             value => ModSettings.AlwaysAllowDoorDamage = value
         );
 
+        Common.Gears_ReadGlobalBool(
+            zombies,
+            "EnableDestroyAreaMode",
+            ref ModSettings.EnableDestroyAreaMode,
+            value => ModSettings.EnableDestroyAreaMode = value
+        );
+
         IGlobalModSettingsCategory explosions = modSettings.GetCategory("Explosions");
         Common.Gears_ReadGlobalFloat(
             explosions,

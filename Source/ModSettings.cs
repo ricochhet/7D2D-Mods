@@ -6,6 +6,7 @@ public static class ModSettings
     public static ZombieBlockDamageMode ZombieBlockDamageMode = ZombieBlockDamageMode.None;
     public static int ZombieBlockDamageDistance = 5;
     public static bool AlwaysAllowDoorDamage = false;
+    public static bool EnableDestroyAreaMode = true;
     public static float ExplosionBlockDamagePercentage = 25f;
     public static bool VerboseLogging = true;
 }
