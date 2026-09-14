@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+  <Name value="MoreBlockDamageOptions" />
+  <DisplayName value="More Block Damage Options" />
+  <Description value="More options for block damage" />
+  <Author value="Ricochet" />
+  <Version value="1.0.0.0" />
+  <Website value="" />
+  <SkipWithAntiCheat value="true" />
+</xml>

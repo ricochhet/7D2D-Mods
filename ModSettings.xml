@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModSettings>
+  <Global>
+    <Tab
+      name="MoreBlockDamageOptions"
+      displayKey="More Block Damage Options"
+      tooltipKey="[DECEA3]More options for block damage[-]"
+    >
+      <Category name="Main" displayKey="[00b6ff]Main[-]" tooltipKey="[DECEA3]More options for block damage[-]">
+        <Slider
+          name="ZombieBlockBreakDistance"
+          displayKey="Zombie Block Break Distance"
+          tooltipKey="[DECEA3]How close zombies need to be from player to break blocks[-]"
+          defaultValue="5"
+        >
+          <Property increment="1" minValue="0" maxValue="100" type="incrementalValuesInt" />
+        </Slider>
+        <Switch
+          name="AlwaysAllowDoorBreaking"
+          displayKey="Always Allow Door Breaking"
+          tooltipKey="[DECEA3]Allow door breaking regardless of distance[-]"
+          defaultValue="No"
+          leftValue="No"
+          rightValue="Yes"
+        />
+        <Slider
+          name="ExplosionBlockDamagePercentage"
+          displayKey="Explosion Block Damage %"
+          tooltipKey="[DECEA3]Percentage of damage blocks should take from explosions[-]"
+          defaultValue="100"
+        >
+          <Property increment="1" minValue="0" maxValue="100" type="incrementalValuesInt" />
+        </Slider>
+        <Switch
+          name="VerboseLogging"
+          displayKey="Verbose Logging"
+          tooltipKey="[DECEA3]Enable verbose logging[-]"
+          defaultValue="No"
+          leftValue="No"
+          rightValue="Yes"
+        />
+      </Category>
+    </Tab>
+  </Global>
+  <World />
+</ModSettings>
