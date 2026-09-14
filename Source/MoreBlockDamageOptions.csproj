@@ -8,6 +8,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <DebugType>portable</DebugType>
     <Version>1.0.0</Version>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GameDir>D:\SteamLibrary\steamapps\common\7 Days To Die</GameDir>
     <GameManagedDir>$(GameDir)\7DaysToDie_Data\Managed</GameManagedDir>
     <GameModsDir>$(GameDir)\Mods</GameModsDir>
