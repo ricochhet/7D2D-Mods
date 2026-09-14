@@ -19,14 +19,19 @@ public static class Common
         if (category.GetSetting(name) is not IGlobalValueSetting globalValueSetting)
             return;
 
-        if (Enum.TryParse<TEnum>(globalValueSetting.CurrentValue, true, out var result))
-            value = result;
+        if (Enum.TryParse<TEnum>(globalValueSetting.CurrentValue, true, out var initialResult))
+            value = initialResult;
 
-        globalValueSetting.OnSettingChanged += (_, newValue) =>
+        TEnum current = value;
+        globalValueSetting.OnSettingChanged += (_, rawNewValue) =>
         {
-            VerboseLogging_TryParse(globalValueSetting.CurrentValue, newValue, name);
-            if (Enum.TryParse<TEnum>(newValue, true, out var parsed))
+            if (Enum.TryParse<TEnum>(rawNewValue, true, out var parsed))
+            {
+                string previous = current.ToString();
+                current = parsed;
                 onValueChanged(parsed);
+                VerboseLogging_TryParse(previous, parsed.ToString(), name);
+            }
         };
     }
 
@@ -40,14 +45,19 @@ public static class Common
         if (category.GetSetting(name) is not IGlobalValueSetting globalValueSetting)
             return;
 
-        if (int.TryParse(globalValueSetting.CurrentValue, out int result))
-            value = result;
+        if (int.TryParse(globalValueSetting.CurrentValue, out int initialResult))
+            value = initialResult;
 
-        globalValueSetting.OnSettingChanged += (_, value) =>
+        int current = value;
+        globalValueSetting.OnSettingChanged += (_, rawNewValue) =>
         {
-            VerboseLogging_TryParse(result.ToString(), value, name);
-            if (int.TryParse(value, out int parsed))
+            if (int.TryParse(rawNewValue, out int parsed))
+            {
+                string previous = current.ToString();
+                current = parsed;
                 onValueChanged(parsed);
+                VerboseLogging_TryParse(previous, parsed.ToString(), name);
+            }
         };
     }
 
@@ -61,14 +71,19 @@ public static class Common
         if (category.GetSetting(name) is not IGlobalValueSetting globalValueSetting)
             return;
 
-        if (float.TryParse(globalValueSetting.CurrentValue, out float result))
-            value = result;
+        if (float.TryParse(globalValueSetting.CurrentValue, out float initialResult))
+            value = initialResult;
 
-        globalValueSetting.OnSettingChanged += (_, value) =>
+        float current = value;
+        globalValueSetting.OnSettingChanged += (_, rawNewValue) =>
         {
-            VerboseLogging_TryParse(result.ToString(), value, name);
-            if (float.TryParse(value, out float parsed))
+            if (float.TryParse(rawNewValue, out float parsed))
+            {
+                string previous = current.ToString();
+                current = parsed;
                 onValueChanged(parsed);
+                VerboseLogging_TryParse(previous, parsed.ToString(), name);
+            }
         };
     }
 
@@ -82,15 +97,52 @@ public static class Common
         if (category.GetSetting(name) is not IGlobalValueSetting globalValueSetting)
             return;
 
-        if (bool.TryParse(globalValueSetting.CurrentValue, out bool result))
-            value = result;
+        if (TryParseBool(globalValueSetting.CurrentValue, out bool initialResult))
+            value = initialResult;
 
-        globalValueSetting.OnSettingChanged += (_, value) =>
+        bool current = value;
+        globalValueSetting.OnSettingChanged += (_, rawNewValue) =>
         {
-            VerboseLogging_TryParse(result.ToString(), value, name);
-            if (bool.TryParse(value, out bool parsed))
+            if (TryParseBool(rawNewValue, out bool parsed))
+            {
+                string previous = current.ToString();
+                current = parsed;
                 onValueChanged(parsed);
+                VerboseLogging_TryParse(previous, parsed.ToString(), name);
+            }
         };
+    }
+
+    private static bool TryParseBool(string value, out bool result)
+    {
+        result = false;
+        if (string.IsNullOrWhiteSpace(value))
+            return false;
+
+        value = value.Trim();
+
+        if (bool.TryParse(value, out result))
+            return true;
+
+        if (
+            value.Equals("Yes", StringComparison.OrdinalIgnoreCase)
+            || value.Equals("1", StringComparison.OrdinalIgnoreCase)
+        )
+        {
+            result = true;
+            return true;
+        }
+
+        if (
+            value.Equals("No", StringComparison.OrdinalIgnoreCase)
+            || value.Equals("0", StringComparison.OrdinalIgnoreCase)
+        )
+        {
+            result = false;
+            return true;
+        }
+
+        return false;
     }
 
     private static void VerboseLogging_TryParse(string initialValue, string newValue, string valueName)
