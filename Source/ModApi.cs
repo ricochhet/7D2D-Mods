@@ -7,7 +7,7 @@ using HarmonyLib;
 
 namespace MoreBlockDamageOptions;
 
-public class Init : IModApi, IGearsModApi
+public class ModApi : IModApi, IGearsModApi
 {
     public void InitMod(IGearsMod _modInstance) { }
 
@@ -38,13 +38,11 @@ public class Init : IModApi, IGearsModApi
             nameof(ModSettings.ZombieBlockBreakDistance)
         );
         zombieBlockBreakDistance.OnSettingChanged += static (_, value) =>
-        {
             Common.TryParseInt(
                 value,
                 ref ModSettings.ZombieBlockBreakDistance,
                 nameof(ModSettings.ZombieBlockBreakDistance)
             );
-        };
 
         ISwitchGlobalSetting alwaysAllowDoorBreaking =
             modSettings.GetTab("MoreBlockDamageOptions").GetCategory("Main").GetSetting("AlwaysAllowDoorBreaking")
@@ -55,13 +53,11 @@ public class Init : IModApi, IGearsModApi
             nameof(ModSettings.AlwaysAllowDoorBreaking)
         );
         alwaysAllowDoorBreaking.OnSettingChanged += static (_, value) =>
-        {
             Common.TryParseBool(
                 value,
                 ref ModSettings.AlwaysAllowDoorBreaking,
                 nameof(ModSettings.AlwaysAllowDoorBreaking)
             );
-        };
 
         ISliderGlobalSetting explosionBlockDamagePercentage =
             modSettings
@@ -74,13 +70,11 @@ public class Init : IModApi, IGearsModApi
             nameof(ModSettings.ExplosionBlockDamagePercentage)
         );
         explosionBlockDamagePercentage.OnSettingChanged += static (_, value) =>
-        {
             Common.TryParseFloat(
                 value,
                 ref ModSettings.ExplosionBlockDamagePercentage,
                 nameof(ModSettings.ExplosionBlockDamagePercentage)
             );
-        };
 
         ISwitchGlobalSetting verboseLogging =
             modSettings.GetTab("MoreBlockDamageOptions").GetCategory("Main").GetSetting("VerboseLogging")
@@ -91,9 +85,7 @@ public class Init : IModApi, IGearsModApi
             nameof(ModSettings.VerboseLogging)
         );
         verboseLogging.OnSettingChanged += static (_, value) =>
-        {
             Common.TryParseBool(value, ref ModSettings.VerboseLogging, nameof(ModSettings.VerboseLogging));
-        };
     }
 
     public void OnWorldSettingsLoaded(IModWorldSettings worldSettings) { }

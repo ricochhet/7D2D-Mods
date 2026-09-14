@@ -2,19 +2,19 @@
 	{
 		"label": "Run Format",
 		"command": "dotnet csharpier format .",
-		"cwd": "$ZED_WORKTREE_ROOT",
+		"cwd": "$ZED_WORKTREE_ROOT/Source",
 		"reveal": "always",
 	},
 	{
 		"label": "Run Lint",
-		"command": "dotnet roslynator analyze MoreBlockDamageOptions.csproj -a .nupkg/roslynator/analyzers/dotnet/roslyn5.0/cs/",
+		"command": "dotnet roslynator analyze Source/MoreBlockDamageOptions.csproj -a .nupkg/roslynator/analyzers/dotnet/roslyn5.0/cs/",
 		"cwd": "$ZED_WORKTREE_ROOT",
 		"reveal": "always",
 	},
 	{
 		"label": "Build",
 		"command": "dotnet build -c Release",
-		"cwd": "$ZED_WORKTREE_ROOT",
+		"cwd": "$ZED_WORKTREE_ROOT/Source",
 		"reveal": "always",
 	},
 ]
