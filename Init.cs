@@ -18,6 +18,7 @@ public class Init : IModApi, IGearsModApi
         try
         {
             harmony.PatchAll(Assembly.GetExecutingAssembly());
+            Log.Out(ModSettings.LogPrefix + "Init completed.");
         }
         catch (Exception ex)
         {
