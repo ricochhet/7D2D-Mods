@@ -29,6 +29,9 @@ public class ModApi : IModApi, IGearsModApi
 
     public void OnGlobalSettingsLoaded(IModGlobalSettings modSettings)
     {
+        if (modSettings is null)
+            return;
+
         IGlobalModSettingsCategory main = modSettings.GetTab("MoreBlockDamageOptions").GetCategory("Main");
         Common.Gears_ReadGlobalInt(
             main,
