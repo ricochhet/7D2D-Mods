@@ -29,7 +29,7 @@ public class ModApi : IModApi, IGearsModApi
 
     public void OnGlobalSettingsLoaded(IModGlobalSettings modSettings)
     {
-        if (modSettings is null)
+        if (modSettings == null)
             return;
 
         IGlobalModSettingsCategory main = modSettings.GetTab("MoreBlockDamageOptions").GetCategory("Main");
