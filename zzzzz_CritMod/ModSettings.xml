@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModSettings>
+  <Global>
+    <Tab name="Body" displayKey="Body" tooltipKey="[DECEA3]Critical hit chance and multiplier options for bodyshots[-]">
+      <Category
+        name="Body"
+        displayKey="[00b6ff]Body[-]"
+        tooltipKey="[DECEA3]Critical hit chance and multiplier options for bodyshots[-]"
+      >
+        <Slider
+          name="BodyCritChancePercentage"
+          displayKey="Body Crit Chance (%)"
+          tooltipKey="[DECEA3]Chance of landing a critical hit on bodyshots[-]"
+          defaultValue="10"
+        >
+          <Property increment="1" minValue="0" maxValue="100" type="incrementalValuesInt" />
+        </Slider>
+        <Slider
+          name="BodyCritDamageMultiplier"
+          displayKey="Body Crit Damage Multiplier"
+          tooltipKey="[DECEA3]Damage multiplier for critical hits on bodyshots[-]"
+          defaultValue="2"
+        >
+          <Property increment="0.01" minValue="0" maxValue="10" type="incrementalValuesFloat" />
+          <Property type="formatter" formatString="0.00" />
+        </Slider>
+        <Slider
+          name="QualityBodyCritChanceBonusPercentage"
+          displayKey="Quality Body Crit Chance Bonus (%)"
+          tooltipKey="[DECEA3]Additive bonus critical hit chance based on item quality for bodyshots[-]"
+          defaultValue="2"
+        >
+          <Property increment="1" minValue="0" maxValue="100" type="incrementalValuesInt" />
+        </Slider>
+      </Category>
+    </Tab>
+    <Tab name="Head" displayKey="Head" tooltipKey="[DECEA3]Critical hit chance and multiplier options for headshots[-]">
+      <Category
+        name="Head"
+        displayKey="[00b6ff]Head[-]"
+        tooltipKey="[DECEA3]Critical hit chance and multiplier options for headshots[-]"
+      >
+        <Slider
+          name="HeadCritChancePercentage"
+          displayKey="Head Crit Chance (%)"
+          tooltipKey="[DECEA3]Chance of landing a critical hit on headshots[-]"
+          defaultValue="20"
+        >
+          <Property increment="1" minValue="0" maxValue="100" type="incrementalValuesInt" />
+        </Slider>
+        <Slider
+          name="HeadCritDamageMultiplier"
+          displayKey="Head Crit Damage Multiplier"
+          tooltipKey="[DECEA3]Damage multiplier for critical hits on headshots[-]"
+          defaultValue="3"
+        >
+          <Property increment="0.01" minValue="0" maxValue="10" type="incrementalValuesFloat" />
+          <Property type="formatter" formatString="0.00" />
+        </Slider>
+        <Slider
+          name="QualityHeadCritChanceBonusPercentage"
+          displayKey="Quality Head Crit Chance Bonus (%)"
+          tooltipKey="[DECEA3]Additive bonus critical hit chance based on item quality for headshots[-]"
+          defaultValue="3"
+        >
+          <Property increment="1" minValue="0" maxValue="100" type="incrementalValuesInt" />
+        </Slider>
+      </Category>
+    </Tab>
+    <Tab name="Misc" displayKey="Misc" tooltipKey="[DECEA3]Misc options[-]">
+      <Category name="Misc" displayKey="[00b6ff]Misc[-]" tooltipKey="[DECEA3]Misc options[-]">
+        <Switch
+          name="VerboseLogging"
+          displayKey="Verbose Logging"
+          tooltipKey="[DECEA3]Enable verbose logging[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
+      </Category>
+    </Tab>
+  </Global>
+  <World />
+</ModSettings>

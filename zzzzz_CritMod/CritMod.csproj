@@ -35,7 +35,7 @@
       <Private>false</Private>
     </Reference>
     <Reference Include="GearsAPI">
-      <HintPath>.\GearsAPI.dll</HintPath>
+      <HintPath>GearsAPI.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="netstandard">

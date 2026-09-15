@@ -58,7 +58,7 @@
         />
         <Slider
           name="ExplosionBlockDamagePercentage"
-          displayKey="Explosion Block Damage %"
+          displayKey="Explosion Block Damage (%)"
           tooltipKey="[DECEA3]Percentage of damage blocks should take from explosions[-]"
           defaultValue="100"
         >
