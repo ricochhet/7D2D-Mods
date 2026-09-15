@@ -21,8 +21,11 @@ public static class EntityAlive_DamageEntity
             return;
 
         bool isHeadshot = _damageSource.GetEntityDamageBodyPart(__instance) == EnumBodyPartHit.Head;
+        float baseMultiplier = isHeadshot ? ModSettings.HeadBaseDamageMultiplier : ModSettings.BodyBaseDamageMultiplier;
+        _strength = (int)Mathf.Round(_strength * baseMultiplier);
+
         int chance = isHeadshot ? ModSettings.HeadCritChancePercentage : ModSettings.BodyCritChancePercentage;
-        float multiplier = isHeadshot ? ModSettings.HeadCritDamageMultiplier : ModSettings.BodyCritDamageMultiplier;
+        float critMultiplier = isHeadshot ? ModSettings.HeadCritDamageMultiplier : ModSettings.BodyCritDamageMultiplier;
 
         ItemValue itemValue = _damageSource.AttackingItem;
         if (itemValue?.HasQuality != null && itemValue.HasQuality)
@@ -35,9 +38,9 @@ public static class EntityAlive_DamageEntity
 
         if (Random.value < chance / 100f)
         {
-            _strength = (int)Mathf.Round(_strength * multiplier);
+            _strength = (int)Mathf.Round(_strength * critMultiplier);
             _criticalHit = true;
-            LogCriticalHit(_strength, chance, multiplier, isHeadshot);
+            LogCriticalHit(_strength, chance, critMultiplier, isHeadshot);
         }
     }
 

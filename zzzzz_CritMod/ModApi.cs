@@ -33,6 +33,13 @@ public class ModApi : IModApi, IGearsModApi
             return;
 
         IGlobalModSettingsCategory body = GetGlobalModSettingsCategory(modSettings, "Body");
+        ReadGlobalFloat(
+            body,
+            "BodyBaseDamageMultiplier",
+            ref ModSettings.BodyBaseDamageMultiplier,
+            value => ModSettings.BodyBaseDamageMultiplier = value
+        );
+
         ReadGlobalInt(
             body,
             "BodyCritChancePercentage",
@@ -55,6 +62,13 @@ public class ModApi : IModApi, IGearsModApi
         );
 
         IGlobalModSettingsCategory head = GetGlobalModSettingsCategory(modSettings, "Head");
+        ReadGlobalFloat(
+            body,
+            "HeadBaseDamageMultiplier",
+            ref ModSettings.HeadBaseDamageMultiplier,
+            value => ModSettings.HeadBaseDamageMultiplier = value
+        );
+
         ReadGlobalInt(
             body,
             "HeadCritChancePercentage",

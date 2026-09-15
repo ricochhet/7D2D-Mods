@@ -8,6 +8,15 @@
         tooltipKey="[DECEA3]Critical hit chance and multiplier options for bodyshots[-]"
       >
         <Slider
+          name="BodyBaseDamageMultiplier"
+          displayKey="Body Base Damage Multiplier"
+          tooltipKey="[DECEA3]Base damage multiplier on bodyshots[-]"
+          defaultValue="1"
+        >
+          <Property increment="0.01" minValue="0" maxValue="10" type="incrementalValuesFloat" />
+          <Property type="formatter" formatString="0.00" />
+        </Slider>
+        <Slider
           name="BodyCritChancePercentage"
           displayKey="Body Crit Chance (%)"
           tooltipKey="[DECEA3]Chance of landing a critical hit on bodyshots[-]"
@@ -40,6 +49,15 @@
         displayKey="[00b6ff]Head[-]"
         tooltipKey="[DECEA3]Critical hit chance and multiplier options for headshots[-]"
       >
+        <Slider
+          name="HeadBaseDamageMultiplier"
+          displayKey="Head Base Damage Multiplier"
+          tooltipKey="[DECEA3]Base damage multiplier on headshots[-]"
+          defaultValue="1"
+        >
+          <Property increment="0.01" minValue="0" maxValue="10" type="incrementalValuesFloat" />
+          <Property type="formatter" formatString="0.00" />
+        </Slider>
         <Slider
           name="HeadCritChancePercentage"
           displayKey="Head Crit Chance (%)"

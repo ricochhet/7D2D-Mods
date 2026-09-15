@@ -4,10 +4,12 @@ public static class ModSettings
 {
     public static string LogPrefix = "[CritMod] ";
 
+    public static float BodyBaseDamageMultiplier = 1f;
     public static int BodyCritChancePercentage = 10;
     public static float BodyCritDamageMultiplier = 2f;
     public static int QualityBodyCritChanceBonusPercentage = 2;
 
+    public static float HeadBaseDamageMultiplier = 1f;
     public static int HeadCritChancePercentage = 20;
     public static float HeadCritDamageMultiplier = 3f;
     public static int QualityHeadCritChanceBonusPercentage = 3;
