@@ -33,11 +33,25 @@ public class ModApi : IModApi, IGearsModApi
             return;
 
         IGlobalModSettingsCategory body = GetGlobalModSettingsCategory(modSettings, "Body");
+        ReadGlobalBool(
+            body,
+            "EnableBodyBaseDamageMultiplier",
+            ref ModSettings.EnableBodyBaseDamageMultiplier,
+            value => ModSettings.EnableBodyBaseDamageMultiplier = value
+        );
+
         ReadGlobalFloat(
             body,
             "BodyBaseDamageMultiplier",
             ref ModSettings.BodyBaseDamageMultiplier,
             value => ModSettings.BodyBaseDamageMultiplier = value
+        );
+
+        ReadGlobalBool(
+            body,
+            "EnableBodyCriticalHits",
+            ref ModSettings.EnableBodyCriticalHits,
+            value => ModSettings.EnableBodyCriticalHits = value
         );
 
         ReadGlobalInt(
@@ -62,11 +76,25 @@ public class ModApi : IModApi, IGearsModApi
         );
 
         IGlobalModSettingsCategory head = GetGlobalModSettingsCategory(modSettings, "Head");
+        ReadGlobalBool(
+            body,
+            "EnableHeadBaseDamageMultiplier",
+            ref ModSettings.EnableHeadBaseDamageMultiplier,
+            value => ModSettings.EnableHeadBaseDamageMultiplier = value
+        );
+
         ReadGlobalFloat(
             body,
             "HeadBaseDamageMultiplier",
             ref ModSettings.HeadBaseDamageMultiplier,
             value => ModSettings.HeadBaseDamageMultiplier = value
+        );
+
+        ReadGlobalBool(
+            body,
+            "EnableHeadCriticalHits",
+            ref ModSettings.EnableHeadCriticalHits,
+            value => ModSettings.EnableHeadCriticalHits = value
         );
 
         ReadGlobalInt(

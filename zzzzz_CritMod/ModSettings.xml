@@ -7,6 +7,14 @@
         displayKey="[00b6ff]Body[-]"
         tooltipKey="[DECEA3]Critical hit chance and multiplier options for bodyshots[-]"
       >
+        <Switch
+          name="EnableBodyBaseDamageMultiplier"
+          displayKey="Enable Body Base Damage Multiplier"
+          tooltipKey="[DECEA3]Enable or disable the body base damage multiplier[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
         <Slider
           name="BodyBaseDamageMultiplier"
           displayKey="Body Base Damage Multiplier"
@@ -16,6 +24,14 @@
           <Property increment="0.01" minValue="0" maxValue="10" type="incrementalValuesFloat" />
           <Property type="formatter" formatString="0.00" />
         </Slider>
+        <Switch
+          name="EnableBodyCriticalHits"
+          displayKey="Enable Body Critical Hits"
+          tooltipKey="[DECEA3]Enable or disable critical hits for bodyshots[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
         <Slider
           name="BodyCritChancePercentage"
           displayKey="Body Crit Chance (%)"
@@ -49,6 +65,14 @@
         displayKey="[00b6ff]Head[-]"
         tooltipKey="[DECEA3]Critical hit chance and multiplier options for headshots[-]"
       >
+        <Switch
+          name="EnableHeadBaseDamageMultiplier"
+          displayKey="Enable Head Base Damage Multiplier"
+          tooltipKey="[DECEA3]Enable or disable the head base damage multiplier[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
         <Slider
           name="HeadBaseDamageMultiplier"
           displayKey="Head Base Damage Multiplier"
@@ -58,6 +82,14 @@
           <Property increment="0.01" minValue="0" maxValue="10" type="incrementalValuesFloat" />
           <Property type="formatter" formatString="0.00" />
         </Slider>
+        <Switch
+          name="EnableHeadCriticalHits"
+          displayKey="Enable Head Critical Hits"
+          tooltipKey="[DECEA3]Enable or disable critical hits for headshots[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
         <Slider
           name="HeadCritChancePercentage"
           displayKey="Head Crit Chance (%)"
