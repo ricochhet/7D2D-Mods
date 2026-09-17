@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+  <Name value="TraderAreaPlayerBuild" />
+  <DisplayName value="Trader Area Player Build" />
+  <Description value="Allow players to build in trader area" />
+  <Author value="Ricochet" />
+  <Version value="1.0.0.0" />
+  <Website value="" />
+  <SkipWithAntiCheat value="true" />
+</xml>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModSettings>
+  <Global>
+    <Tab name="General" displayKey="General" tooltipKey="[DECEA3]Trader area player build options[-]">
+      <Category name="General" displayKey="[00b6ff]General[-]" tooltipKey="[DECEA3]Trader area player build options[-]">
+        <Switch
+          name="AllowPlace"
+          displayKey="Allow Place"
+          tooltipKey="[DECEA3]Allow block placement in trader area[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
+        <Switch
+          name="AllowPickup"
+          displayKey="Allow Pickup"
+          tooltipKey="[DECEA3]Allow block pickup in trader area[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
+        <Switch
+          name="AllowMineBreak"
+          displayKey="Allow Mine Break"
+          tooltipKey="[DECEA3]Allow block breaking in trader area[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
+        <Switch
+          name="AllowRepairUpgrade"
+          displayKey="Allow Repair Upgrade"
+          tooltipKey="[DECEA3]Allow repairing and upgrading in trader area[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
+        <Switch
+          name="AllowPourWater"
+          displayKey="Allow Pour Water"
+          tooltipKey="[DECEA3]Allow pouring water in trader area[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
+        <Switch
+          name="AllowBehindTraderCounter"
+          displayKey="Allow Behind Trader Counter"
+          tooltipKey="[DECEA3]Allow going behind counter in trader area[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
+        <Switch
+          name="AllowLandClaim"
+          displayKey="AllowLandClaim"
+          tooltipKey="[DECEA3]Allow land claim in trader area[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
+      </Category>
+    </Tab>
+    <Tab name="Misc" displayKey="Misc" tooltipKey="[DECEA3]Misc options[-]">
+      <Category name="Misc" displayKey="[00b6ff]Misc[-]" tooltipKey="[DECEA3]Misc options[-]">
+        <Switch
+          name="VerboseLogging"
+          displayKey="Verbose Logging"
+          tooltipKey="[DECEA3]Enable verbose logging[-]"
+          defaultValue="Yes"
+          leftValue="No"
+          rightValue="Yes"
+        />
+      </Category>
+    </Tab>
+  </Global>
+  <World />
+</ModSettings>
