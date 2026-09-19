@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+  <Name value="ResetPoiKeepBlocks" />
+  <DisplayName value="ResetPoiKeepBlocks" />
+  <Description value="Adds a 'resetpoi' command that resets the current POI while keeping placed blocks" />
+  <Author value="" />
+  <Version value="1.0.0.0" />
+  <Website value="" />
+</xml>
